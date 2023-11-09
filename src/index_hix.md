@@ -60,7 +60,7 @@ E como a equação é:
 
 $$V(i, j) = \begin{cases} V(i-1, j), & \text{Se } W_i > C \\ \max(V(i-1, j), V(i-1, j-W_i)), & \text{Se } W_i \leq C \end{cases}$$
 
-Temos que a função para realiazar a recursão é:
+Temos que a função em c para realiazar a recursão é:
 
 ``` c
 int value(Item *items, int item_number, int space_available) {
