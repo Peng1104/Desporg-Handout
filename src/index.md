@@ -9,25 +9,50 @@ O problema da mochila é um desafio fundamental de otimização combinatória.  
 Formalização do Problema
 ---------
 
-Imagine que você tem uma mochila que pode carregar um peso máximo de W. Você também tem um conjunto de itens, cada um com seu próprio peso e valor. O objetivo é determinar a combinação mais valiosa de itens que pode caber na mochila sem ultrapassar o limite de peso.
+Imagine que em uma distante terra de conflitos, um jovem soldado chamado Lucas estava se preparando para uma missão crítica. Ele tinha à sua disposição uma mochila militar, mas que podia carregar no máximo 40kg. Antes de partir, Lucas enfrentou um dilema estratégico: escolher entre uma variedade de itens essenciais, cada um com seu próprio peso e valor. O valor de cada item representava sua importância para a sobrevivência e o sucesso na missão.
 
-Tipos de Problemas da Mochila:
+**Itens Disponíveis:**
+
+1. Item 1: Um kit de primeiros socorros, valor {green}(500), mas pesando {red}(30kg).
+
+2. Item 2: Alimentos compactos, valor {green}(200), com peso de {red}(10kg).
+
+3. Item 3: Um dispositivo de comunicação, valor {green}(300), pesando {red}(20kg).
+
+4. Item 4: Armas e munições, valor {green}(400), pesando {red}(25kg).
+
+5. Item 5: Equipamento de camuflagem, valor {green}(350), com peso de {red}(15kg).
+
+Lucas sabia que o valor de cada item representava o quão crucial ele poderia ser para a sua sobrevivência. No entanto, ele também compreendia que não era apenas uma questão de escolher o item mais valioso, pois isso poderia limitar sua capacidade de levar outros itens potencialmente úteis.
+
+??? Exercício
+Se você fosse Lucas, quais itens você levaria para maximizar o valor total?
+???
+
+Se você foi sagaz o suficiente, antes de resolver o problema deve ter percebido que você poderia levar metade dos alimentos compactos e metade das armas e munições ou qualquer outra fração de cada item. O que nos leva a uma questão importante: **podemos levar frações de itens ou devemos escolher entre levar um item ou não?**
+
+Diferentes Abordagens para o Problema da Mochila:
 ---------
 
-Existem algumas variações do problema da mochila, cada uma com suas próprias características e restrições. As três mais comuns são:
+Após a análise dos itens disponíveis, Lucas se deparou com uma questão crucial: Deveria ele escolher levar um item inteiro ou poderia optar por frações de cada um? Esta decisão o levou a considerar as diferentes variações do Problema da Mochila, cada uma adequada para cenários distintos e com suas próprias regras:
 
-1. Mochila 0/1 (binária): Você ou leva um item ou o deixa. Não há meio-termo.
 
-2. Mochila Fracionária: Você pode levar frações de um item.
 
-3. Mochila Ilimitada: Você pode levar um número ilimitado de cada item
+1. **Mochila 0/1 (binária):** Nesta variação, a escolha é binária - você ou leva um item inteiro ou não leva nada dele. É um cenário de "tudo ou nada", sem a possibilidade de levar apenas uma parte de um item. Para Lucas, isso significaria escolher entre levar ou deixar cada item essencial, sem a opção de dividir o peso ou o valor.
 
-{red}(Neste Handout iremos nos concentrar na mochila binária.)
+2. **Mochila Fracionária:** Aqui, Lucas poderia optar por levar apenas uma fração de cada item. Por exemplo, ele poderia decidir levar metade do kit de primeiros socorros ou apenas uma parte das munições, ajustando o peso total ao limite da mochila. Esta abordagem oferece flexibilidade, mas nem sempre é aplicável na realidade de um soldado em campo.
 
-Exemplo (Mochila 0/1):
+3. **Mochila Ilimitada:** Nesta variação, Lucas poderia levar quantidades ilimitadas de cada item, contanto que o peso total não excedesse o limite da mochila. Essa opção, embora teoricamente interessante, não se encaixa na realidade prática de recursos limitados.
+
+Foco no Problema da Mochila Binária:
 ---------
 
-Imagine que você é um soldado indo para a guerra e tem uma mochila que pode carregar até 40kg. Você tem os seguintes itens disponíveis para colocar na mochila:
+{red}(Neste Handout, nos concentraremos na mochila binária.) Lucas, portanto, tinha que tomar decisões claras sobre quais itens levar, considerando o valor e o peso de cada um, sem a possibilidade de dividir os itens. Esta abordagem reflete o dilema real enfrentado por ele - escolher o conjunto mais valioso de itens completos que caberiam em sua mochila de 40kg, maximizando assim suas chances de sucesso na missão.
+
+Resolvendo o problema:
+---------
+
+Voltando à história do soldado Lucas, ele enfrentava o desafio de escolher entre vários itens valiosos, cada um com seu próprio peso. A mochila de Lucas podia carregar até 40kg, e ele tinha os seguintes itens disponíveis:
 
 | Items | Valor | Peso |
 |-------|-------|------|
@@ -37,13 +62,17 @@ Imagine que você é um soldado indo para a guerra e tem uma mochila que pode ca
 | 4     |  400  |  25  |
 | 5     |  350  |  15  |
 
-??? Exercício
-Qual combinação de itens você deve levar para maximizar o valor total?
+**Desafio para Lucas:**
+Se você fosse Lucas, enfrentando uma missão crítica, quais itens você escolheria para garantir sua sobrevivência, maximizando o valor dentro do limite de peso da mochila?
 
-!!! Aviso
-Neste exemplo quanto maior for o valor maior é sua chance de sobrevivência.
+!!! Dica
+Considere a importância de cada item para a missão e o peso que cada um adiciona à mochila. O objetivo é alcançar o máximo valor sem exceder o limite de peso de 40kg.
 !!!
 
-::: Gabarito
-Apesar de parecer intuitivo levar o item de maior valor, isso não necessariamente resulta na melhor solução. Neste caso, a melhor solução é levar os itens 4 e 5, que resulta em um valor total de 750.
+::: Solução:
+* Lucas percebeu que escolher o item de maior valor individual (Item 1) consumiria a maior parte da capacidade de sua mochila, deixando pouco espaço para outros itens essenciais. Portanto, ele precisava encontrar uma combinação de itens que oferecesse o maior valor agregado sem ultrapassar o limite de peso.
+
+
+
+* Após analisar as opções, Lucas concluiu que a melhor combinação seria levar os itens 4 e 5. Juntos, esses itens somam um valor total de 750 e pesam exatamente 40kg (25kg + 15kg), maximizando assim o valor que ele poderia levar sem exceder a capacidade da mochila. Esta escolha lhe proporcionou um equilíbrio ideal entre poder de defesa, equipamento de sobrevivência e capacidade de camuflagem.
 :::
