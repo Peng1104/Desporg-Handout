@@ -90,6 +90,18 @@ e retornamos o maior valor `md max{V(i-1, j), V(i-1, j-w)}`.
     return with > without ? with : without;
 ```
 
+TESTE
+
+:matrix
+
+
+
+
+
+
+
+
+
 ??? Exercício 1
 Para entender um pouco melhor a recursão na prática, vamos fazer um exercício utilizando matrizes. Considere os items de 1 a 4, com diferentes pesos Wi e valores Vi e uma mochila com capacidade `md C = 5`.
 
@@ -101,8 +113,6 @@ Para entender um pouco melhor a recursão na prática, vamos fazer um exercício
 
 Vamos utilizar a definição da recursão para preencher a matriz, que possui colunas que indicam capacidades intermediárias da mochila e linhas que indicam os diferentes itens.
 $$V(i, j) = \begin{cases} V(i-1, j), & \text{Se } W_i > j \\ \max(V(i-1, j), V(i-1, j-W_i) + Vi), & \text{Se } W_i \leq j \end{cases}$$
-
-
 
 O que podemos afirmar sobre a coluna `md j = 0` e a linha `md i = 0`?
 
