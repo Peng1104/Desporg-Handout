@@ -26,28 +26,14 @@ Imagine que em uma distante terra de conflitos, um jovem soldado chamado Lucas e
 Lucas sabia que o valor de cada item representava o quão crucial ele poderia ser para a sua sobrevivência. No entanto, ele também compreendia que não era apenas uma questão de escolher o item mais valioso, pois isso poderia limitar sua capacidade de levar outros itens potencialmente úteis.
 
 ??? Exercício
-Se você fosse Lucas, quais itens você levaria para maximizar o valor total?
+Se você fosse Lucas, quais extrategias você utilizaria para maximizar o valor total?
 ???
 
-Se você foi sagaz o suficiente, antes de resolver o problema deve ter percebido que você poderia levar metade dos alimentos compactos e metade das armas e munições ou qualquer outra fração de cada item. O que nos leva a uma questão importante: **podemos levar frações de itens ou devemos escolher entre levar um item ou não?**
+Se você foi sagaz, já deve ter percebido que você poderia levar metade dos alimentos compactos e metade das armas e munições ou qualquer outra fração de cada item. O que nos leva a uma questão importante: **podemos levar frações de itens ou devemos escolher entre levar um item ou não?**
 
-Diferentes Abordagens para o Problema da Mochila:
----------
+Existem multiplas variações do problema da mochila, mas a mais comum é a mochila binária, {red}(e de fato, é a que iremos abordar neste handout). Nesta variação, a escolha é binária - você ou leva um item inteiro ou não leva nada dele. É um cenário de "tudo ou nada", sem a possibilidade de levar apenas uma parte de um item. Para Lucas, isso significaria escolher entre levar ou deixar cada item essencial, sem a opção de dividir o peso ou o valor.
 
-Após a análise dos itens disponíveis, Lucas se deparou com uma questão crucial: Deveria ele escolher levar um item inteiro ou poderia optar por frações de cada um? Esta decisão o levou a considerar as diferentes variações do Problema da Mochila, cada uma adequada para cenários distintos e com suas próprias regras:
-
-
-
-1. **Mochila 0/1 (binária):** Nesta variação, a escolha é binária - você ou leva um item inteiro ou não leva nada dele. É um cenário de "tudo ou nada", sem a possibilidade de levar apenas uma parte de um item. Para Lucas, isso significaria escolher entre levar ou deixar cada item essencial, sem a opção de dividir o peso ou o valor.
-
-2. **Mochila Fracionária:** Aqui, Lucas poderia optar por levar apenas uma fração de cada item. Por exemplo, ele poderia decidir levar metade do kit de primeiros socorros ou apenas uma parte das munições, ajustando o peso total ao limite da mochila. Esta abordagem oferece flexibilidade, mas nem sempre é aplicável na realidade de um soldado em campo.
-
-3. **Mochila Ilimitada:** Nesta variação, Lucas poderia levar quantidades ilimitadas de cada item, contanto que o peso total não excedesse o limite da mochila. Essa opção, embora teoricamente interessante, não se encaixa na realidade prática de recursos limitados.
-
-Foco no Problema da Mochila Binária:
----------
-
-{red}(Neste Handout, nos concentraremos na mochila binária.) Lucas, portanto, tinha que tomar decisões claras sobre quais itens levar, considerando o valor e o peso de cada um, sem a possibilidade de dividir os itens. Esta abordagem reflete o dilema real enfrentado por ele - escolher o conjunto mais valioso de itens completos que caberiam em sua mochila de 40kg, maximizando assim suas chances de sucesso na missão.
+Lucas, portanto, tinha que tomar decisões claras sobre quais itens levar, considerando o valor e o peso de cada um, sem a possibilidade de dividir os itens. Esta abordagem reflete o dilema real enfrentado por ele - escolher o conjunto mais valioso de itens completos que caberiam em sua mochila de 40kg, maximizando assim suas chances de sucesso na missão.
 
 Resolvendo o problema:
 ---------
