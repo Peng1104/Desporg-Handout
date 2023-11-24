@@ -66,7 +66,7 @@ Considere a importância de cada item para a missão e o peso que cada um adicio
 
 
 
-Arthur
+Hix
 ---------
 
 Antes de realizar a recursão precisamos compreender quais as situações que podem ocorrer com a mochila. Uma vez com todas as situações identificadas podemos definir quais são asa condições de parada e quais são valores retornados pela recursão.
@@ -703,7 +703,7 @@ Assim, conclui-se que a combinação que leva ao maior valor é do item 4 com o 
 ???
 
 
-O Problema da mochila binária.
+Arthur
 ---------
 
 Portanto temos a estrutura de um item como:
