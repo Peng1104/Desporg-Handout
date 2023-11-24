@@ -54,36 +54,11 @@ Dessa forma, o cenário que trouxer um maior valor entre <span style="color:blue
 A matriz da recursão
 ---------
 
-Para entender melhor o funcionamento do algoritmo, podemos utilizar uma matriz para representar a recursão. Assim, cada linha da matriz representa um item **i** e cada coluna representa uma capacidade intermediária **j** (pode ser interpretada como uma versão menor da mochila).
-Os valores a serem preenchidos na matriz são os valores máximos **V** para cada combinação de itens e capacidades intermediárias. 
+Para entender melhor o funcionamento do algoritmo, podemos utilizar uma matriz para representar a recursão. 
 
-Por exemplo, a posição `md (3,2)` será preenchida pelo resultado de `md V(3, 2)`.
+Na linha `md i = 1`, estamos considerando um cenário em que apenas o `md item 1` pode ser alocado na mochila. Já na linha `md i = 2`, estamos considerando um cenário em que apenas os `md itens 1 e 2` podem ser alocados na mochila. E assim por diante até a última linha, em que o conjunto completo de itens pode ser alocado na mochila.
 
-i \ j  |0   | 1  | 2  | 3  | 4  | 5  |
- ----- |:--:|:--:|:--:|:--:|:--:|:--:|
-**0**  |    |    |    |    |    |    |
-**1**  |    |    |    |    |    |    |
-**2**  |    |    |    |    |    |    |
-**3**  |    |    |    |    |    |    |
-**4**  |    |    |    |    |    |    |
-
-??? Checkpoint
-
-A posição destacada em vermelho na matriz deve ser preenchida por qual valor?
-
-:checkpoint1
-
-::: Gabarito
-
-A posição destacada em vermelho está na linha 4 e na coluna 1, ou seja, posição `md (4,1)` da matriz. Assim, para preencher essa posição, devemos calcular `md V(4,1)`.
-:::
-
-???
-
-
-Na linha `md i = 1`, estamos considerando um cenário em que apenas o `md item 1` pode ser alocado na mochila. Já na linha `md i = 2`, estamos considerando um cenário em que apenas os `md itens 1 e 2` podem ser alocados na mochila. E assim por diante. Dessa forma, a **solução** para o problema será encontrada na **última linha** da matriz, onde todos os itens podem ser alocados na mochila.
-
-O mesmo raciocínio é feito nas colunas. Na coluna `md j = 1`, estamos considerando um cenário em que temos uma mochila menor de capacidade 1. Já na coluna `md j = 2`, estamos considerando um cenário em que a mochila menor tem capacidade 2. E assim por diante. Dessa forma, a **solução** para o problema será encontrada na **última coluna** da matriz, onde o a capacidade da mochila menor se iguala a capacidade total da mochila real.
+O mesmo raciocínio é feito nas colunas. Na coluna `md j = 1`, estamos considerando um cenário em que temos uma mochila menor de capacidade 1. Já na coluna `md j = 2`, estamos considerando um cenário em que a mochila menor tem capacidade 2. E assim por diante até a última coluna, em que a capacidade da mochila menor se iguala a capacidade total da mochila real.
 
 ??? Checkpoint
 
