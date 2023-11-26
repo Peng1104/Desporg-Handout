@@ -13,15 +13,15 @@ Imagine que em uma distante terra de conflitos, um jovem soldado chamado Lucas e
 
 **Itens Disponíveis:**
 
-1. Item 1: Um kit de primeiros socorros, valor {green}(500), mas pesando {red}(30kg).
+1. Item 1: Um Kit de Primeiros Socorros, valor {green}(500), mas pesando {red}(30kg).
 
-2. Item 2: Alimentos compactos, valor {green}(200), com peso de {red}(10kg).
+2. Item 2: Ração de Combate, valor {green}(200), com peso de {red}(10kg).
 
-3. Item 3: Um dispositivo de comunicação, valor {green}(300), pesando {red}(20kg).
+3. Item 3: Dispositivo de Comunicação, valor {green}(300), pesando {red}(20kg).
 
-4. Item 4: Armas e munições, valor {green}(400), pesando {red}(25kg).
+4. Item 4: Kit de Armas e Munições, valor {green}(400), pesando {red}(25kg).
 
-5. Item 5: Equipamento de camuflagem, valor {green}(350), com peso de {red}(15kg).
+5. Item 5: Equipamento de Camuflagem, valor {green}(350), com peso de {red}(15kg).
 
 Lucas sabia que o valor de cada item representava o quão crucial ele poderia ser para a sua sobrevivência. No entanto, ele também compreendia que não era apenas uma questão de escolher o item mais valioso, pois isso poderia limitar sua capacidade de levar outros itens potencialmente úteis.
 
