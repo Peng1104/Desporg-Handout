@@ -15,11 +15,11 @@ Imagine que em uma distante terra de conflitos, um jovem soldado chamado Lucas e
 
 1. Item 1: Um Kit de Primeiros Socorros, valor {green}(500), mas pesando {red}(30kg).
 
-2. Item 2: Ração de Combate, valor {green}(200), com peso de {red}(10kg).
+2. Item 2: Ração de Combate (MRE), valor {green}(200), com peso de {red}(10kg).
 
 3. Item 3: Dispositivo de Comunicação, valor {green}(300), pesando {red}(20kg).
 
-4. Item 4: Kit de Armas e Munições, valor {green}(400), pesando {red}(25kg).
+4. Item 4: Pistola Silenciosa, valor {green}(400), pesando {red}(25kg).
 
 5. Item 5: Equipamento de Camuflagem, valor {green}(350), com peso de {red}(15kg).
 
