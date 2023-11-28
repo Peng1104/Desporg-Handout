@@ -59,11 +59,11 @@ Para chegar a conclusão de quais os Items a serem adicionados precisamos fazer 
 
 Mas antes de realizar a recursão precisamos compreender quais as situações que podem ocorrem durante o preenchimento da mochila. Uma vez com todas as situações definidas podemos identificar quais são as condições de parada e quais são valores que devem ser retornados pela recursão.
 
-Primeiramente vamos analisar quais as situações que apenas cada item pode ter em relação a mochila.
+Primeiramente vamos analisar qual é a interação entre um item e a mochila?
 
-??? Quais opções temos para o Item?
+??? Quais são as possiveis interações entre um item e a mochila?
 :::
-Apenas duas opções, uma de **adicionar** o item e outra de **não** adicionar ele.
+Há apenas duas opções, uma de **adicionar** o item na mochila e outra de **não** adicionar ele.
 :::
 ???
 
@@ -75,7 +75,7 @@ Sim existe um cenário que força **não** adicionar o item, este cenário acont
 :::
 ???
 
-Além de cada situação para cada item temos tambem o cenário global, ou seja quais situações que temos para todos os itens e a mochila?
+Além de cada situação para cada item temos tambem o cenário global, ou seja, situações que afetam a interação de todos os itens com a mochila.
 
 ??? Quais cenários globais temos?
 :::
