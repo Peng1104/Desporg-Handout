@@ -30,7 +30,7 @@ Resolvendo manualmente o problema:
 
 Voltando à história do soldado Lucas, ele enfrentava o desafio de escolher entre vários itens valiosos, cada um com seu próprio peso. A mochila de Lucas podia carregar até 40kg, e ele tinha os seguintes itens disponíveis:
 
-| Items | Valor | Peso |
+| Itens | Valor | Peso |
 |-------|-------|------|
 | 1     |  500  |  30  |
 | 2     |  200  |  10  |
@@ -46,7 +46,7 @@ Considere a importância de cada item para a missão e o peso que cada um adicio
 !!!
 
 ::: Solução:
-* Lucas percebeu que escolher o item de maior valor individual (Item 1) consumiria a maior parte da capacidade de sua mochila, deixando pouco espaço para outros itens essenciais. Portanto, ele precisava encontrar uma combinação de itens que oferecesse o maior valor agregado sem ultrapassar o limite de peso.
+* Lucas percebeu que escolher o item de maior valor individual (item 1) consumiria a maior parte da capacidade de sua mochila, deixando pouco espaço para outros itens essenciais. Portanto, ele precisava encontrar uma combinação de itens que oferecesse o maior valor agregado sem ultrapassar o limite de peso.
 
 * Após analisar as opções, Lucas concluiu que a melhor combinação seria levar os itens 4 e 5. Juntos, esses itens somam um valor total de 750 e pesam exatamente 40kg (25kg + 15kg), maximizando assim o valor que ele poderia levar sem exceder a capacidade da mochila. Esta escolha lhe proporcionou um equilíbrio ideal entre poder de defesa, equipamento de sobrevivência e capacidade de camuflagem.
 :::
@@ -55,7 +55,7 @@ Considere a importância de cada item para a missão e o peso que cada um adicio
 Resolução
 ---------
 
-Para chegar a conclusão de quais os Items a serem adicionados precisamos fazer um processo recursivo para que todas as opções sejam exploradas.
+Para chegar a conclusão de quais os itens a serem adicionados precisamos fazer um processo recursivo para que todas as opções sejam exploradas.
 
 Mas antes de realizar a recursão precisamos compreender quais as situações que podem ocorrem durante o preenchimento da mochila. Uma vez com todas as situações definidas podemos identificar quais são as condições de parada e quais são valores que devem ser retornados pela recursão.
 
@@ -79,9 +79,8 @@ Além de cada situação para cada item temos tambem o cenário global, ou seja,
 
 ??? Quais cenários globais temos?
 :::
-Apenas dois novamente. 
-Um sendo o cenários de quando **não haver mais espaço na mochila** para adicionar os Itens.
-E outro sendo quando **não houver mais itens validos para adicionar**
+Apenas dois novamente.
+um sendo o cenário em que **não há mais espaço na mochila** para adicionar os itens, e o outro sendo quando **não há mais itens válidos para adicionar.**
 :::
 ???
 
@@ -94,7 +93,7 @@ Onde $V(i, j)$ calcula o valor máximo para a combinação da quantidade `md i` 
 A Recursão
 ---------
 
-Antes de poder criar a função de recursão precisamos de uma esturda que identifica cada Item dentro da mochila e como vimos cada Item possui um peso e um valor. Portanto temos a estrutura de um Item como:
+Antes de poder criar a função de recursão precisamos de uma estrutura que identifica cada item dentro da mochila e como vimos cada item possui um peso e um valor. Portanto temos a estrutura de um Item como:
 
 ``` c
 typedef struct {
@@ -109,7 +108,7 @@ Como vimos temos duas opções para cada item, a de **não** adicionar
 
 ??? Como calcular o valor da mochila sem adicionar um item?
 :::
-Para poder saber o valor da mochila **sem** um item precisamos apenas "pular o seu indice" na recursão e calcular o valor da mochila com os outros itens. `md V(i-1, j)` ou seja diminuir o total de itens.
+Para poder saber o valor da mochila **sem** um item precisamos apenas "pular o seu indice" na recursão e calcular o valor da mochila com os outros itens. `md V(i-1, j)`, ou seja, diminuir o total de itens.
 :::
 ???
 
@@ -117,13 +116,13 @@ e a de adicionar.
 
 ??? E para adicionar o item?
 :::
-Para poder saber o valor da mochila **com** o item precisamos calcular o valor de uma mochila intermediaria que possui um espaço igual ao espaço original menos o volume ocupado pelo Item e somar este resultado com o valor do Item. `md V(i-1, j-Wi) + Vi`. Ou seja, diminuir o total de itens, diminuir o espaço disponível pelo espaço ocupado pelo item e somar seu valor.
+Para poder saber o valor da mochila **com** o item precisamos calcular o valor de uma mochila intermediaria que possui um espaço igual ao espaço original (`md j`) menos o volume ocupado pelo item (`md j-Wi`) e somar este resultado com o valor do item. `md V(i-1, j-Wi) + Vi`. Ou seja, diminuir o total de itens (`md i-1`), diminuir o espaço disponível pelo espaço ocupado pelo item (`md j-Wi`) e somar seu valor (`md +Vi`).
 :::
 ???
 
 Uma vez definido como a recursão vai acontecer temos implementar as condições que levam aos cenários.
 
-Como foi visto o primeiro scénario que foi identificado foi o de não haver espaço para adicionar um item, portanto precisamos verificar se há espaço disponivel para adicionar o Item, ou seja, verificar se o peso do item é menor ou igual ao espaço disponivel na mochila.
+Como foi visto, o primeiro cénario identificado foi o de não haver espaço para adicionar um item, portanto, devemos verificar se há espaço disponivel para adicionar o item, ou seja, verificar se o peso do item é menor ou igual ao espaço disponivel na mochila.
 
 ??? O que significa isso matematicamente?
 :::
@@ -131,7 +130,7 @@ $$\text{Se } W_i \leq j$$
 :::
 ???
 
-Caso contrario, ou seja, estamos no scénario identificado, a resposta é trivial, não tem espaço para item portanto apenas existe a opção de não adicionar ele a mochila.
+Caso contrario, ou seja, estamos no cénario identificado, a resposta é trivial, não tem espaço para item portanto apenas existe a opção de não adicionar ele a mochila.
 
 ``` c
 if (peso_do_item > espaco_disponivel) {
@@ -145,21 +144,21 @@ $$V(i, j) = V(i-1, j), \text{Se } W_i > j$$
 :::
 ???
 
-Se for o caso de haver espaço precisamos descobrir se vale a pena adicionar o Item. Para isso precisamos primeiro calcular qual seria o valor da mochila com o item.
+Se for o caso de haver espaço precisamos descobrir se vale a pena adicionar o item. Para isso precisamos primeiro calcular qual seria o valor da mochila com o item.
 
-Para calcular o valor da mochila com o Item precisamos criar uma sub mochila que possui como seu espaço disponivel o espaço da mochila atual menos o peso do Item $j-W_i$, o que repesenta o volume que seria ocupado pelo Item, calcular seu valor e somar este resultado com o valor do Item $V_i$.
-
-``` c
-int com = V(lista_de_items, quantidade_de_itens_restantes - 1, espaco_disponivel - peso_do_item) + valor_do_item;
-```
-
-Feito isso precisamos calcular o valor da mochila sem o Item $V(i-1, j)$.
+Para calcular o valor da mochila com o item precisamos criar uma sub mochila que possui como seu espaço disponivel o espaço da mochila atual menos o peso do item $j-W_i$, o que repesenta o volume que seria ocupado pelo item, calcular seu valor e somar este resultado com o valor do item $V_i$.
 
 ``` c
-int sem = V(lista_de_items, quantidade_de_itens_restantes - 1, espaco_disponivel);
+int com = V(lista_de_itens, quantidade_de_itens_restantes - 1, espaco_disponivel - peso_do_item) + valor_do_item;
 ```
 
-E depois de calcular o valor da mochila sem o Item comparamos os valores e escolhemos o maior entre eles, já que o objetivo é maximisar a mochila. $\text{max}(V(i-1, j), V(i-1, j-W_i) + Vi)$.
+Feito isso precisamos calcular o valor da mochila sem o item $V(i-1, j)$.
+
+``` c
+int sem = V(lista_de_itens, quantidade_de_itens_restantes - 1, espaco_disponivel);
+```
+
+E depois de calcular o valor da mochila sem o item comparamos os valores e escolhemos o maior entre eles, já que o objetivo é maximizar o valor da mochila. $\text{max}(V(i-1, j), V(i-1, j-W_i) + Vi)$.
 
 ``` c
 if (sem > com) {
@@ -168,7 +167,7 @@ if (sem > com) {
 return com;
 ```
 
-Além disso temos os scénarios relacionados a todos os itens e a mochila em si. Que são as condições de parada. 
+Além disso temos os cénarios relacionados a todos os itens e a mochila em si. Que são as condições de parada. 
 O primeiro é quando não há mais itens para adicionar na mochila, ou seja, $i = 0$.
 
 ``` c
@@ -187,30 +186,30 @@ if (espaco_disponivel == 0) {
 
 ??? Porque o valor retornado é 0 nas condições de parada?
 :::
-O valor de zero representa que não há nenhum valor sendo adicionado a mochila.
+O valor zero representa que não há nenhum valor sendo adicionado a mochila.
 :::
 ???
 
-??? Como seria a função usando os juntando os codigos acima?
+??? Como seria a função juntando os codigos acima?
 :::
 ``` c
-int V(Item *lista_de_items, int quantidade_de_itens_restantes, int espaco_disponivel) {
+int V(Item *lista_de_itens, int quantidade_de_itens_restantes, int espaco_disponivel) {
     if (quantidade_de_itens_restantes == 0) {
         return 0;
     }
     if (espaco_disponivel == 0) {
         return 0;
     }
-    int sem = V(lista_de_items, quantidade_de_itens_restantes - 1, espaco_disponivel);
+    int sem = V(lista_de_itens, quantidade_de_itens_restantes - 1, espaco_disponivel);
 
-    int peso_do_item = lista_de_items[quantidade_de_itens_restantes - 1].weight;
+    int peso_do_item = lista_de_itens[quantidade_de_itens_restantes - 1].weight;
 
     if (peso_do_item > espaco_disponivel) {
         return sem;
     }
-    int valor_do_item = lista_de_items[quantidade_de_itens_restantes - 1].value;
+    int valor_do_item = lista_de_itens[quantidade_de_itens_restantes - 1].value;
 
-    int com = V(lista_de_items, quantidade_de_itens_restantes - 1, espaco_disponivel - peso_do_item) + valor_do_item;
+    int com = V(lista_de_itens, quantidade_de_itens_restantes - 1, espaco_disponivel - peso_do_item) + valor_do_item;
 
     if (sem > com) {
         return sem;
@@ -248,6 +247,8 @@ A solução sempre estará na última linha e na última coluna da matriz.
 :::
 
 ???
+
+Agora, vamos aplicar as condições de parada na matriz.
 
 ??? Exercício 1
 
@@ -295,6 +296,9 @@ Veja essa animação para entender como a matriz executa o algoritmo:
 
 :matrix
 
+Agora vamos fixar o entendimento da matriz em dois exercícios.
+
+
 ??? Exercício 2
 
 Considere os seguintes itens de 1 a 4 com diferentes pesos e valores. Considere uma mochila com capacidade `md C = 4`.
@@ -324,7 +328,7 @@ Preencha a posição destacada da matriz utilizando a recursão.
 |**Wi**|1 | 4| 2| 3 |
 |**Vi**|120 | 350| 250| 300|
 
-Preencha a última posição referente à soução do problema.
+Preencha a última posição referente à solução do problema.
 
 :ex3
 
