@@ -57,7 +57,7 @@ Resolução
 
 Para chegar a conclusão de quais os itens a serem adicionados precisamos fazer um processo recursivo para que todas as opções sejam exploradas.
 
-Mas antes de realizar a recursão precisamos compreender quais as situações que podem ocorrem durante o preenchimento da mochila. Uma vez com todas as situações definidas podemos identificar quais são as condições de parada e quais são valores que devem ser retornados pela recursão.
+Mas antes de realizar a recursão precisamos compreender quais as situações que podem ocorrer durante o preenchimento da mochila. Uma vez com todas as situações definidas podemos identificar quais são as condições de parada e quais são valores que devem ser retornados pela recursão.
 
 Primeiramente vamos analisar qual é a interação entre um item e a mochila?
 
@@ -84,11 +84,11 @@ um sendo o cenário em que **não há mais espaço na mochila** para adicionar o
 :::
 ???
 
-Feito isso podemos esperessar essas conclusões na seguinte formula matemática:
+Feito isso podemos expressar essas conclusões na seguinte formula matemática:
 
 $$V(i, j) = \begin{cases} V(i-1, j), & \text{Se } W_i > j \\ \max(V(i-1, j), V(i-1, j-W_i) + Vi), & \text{Se } W_i \leq j \end{cases}$$
 
-Onde $V(i, j)$ calcula o valor máximo para a combinação da quantidade `md i` de itens e `md j` de espaço disponível na mochila.
+Onde $V(i, j)$ calcula o valor máximo para a combinação da quantidade `md i` de itens e `md j` de espaço disponível na mochila, considerando o peso `md Wi` e o valor `md Vi` do item `md i`.
 
 A Recursão
 ---------
@@ -119,6 +119,10 @@ e a de adicionar.
 Para poder saber o valor da mochila **com** o item precisamos calcular o valor de uma mochila intermediaria que possui um espaço igual ao espaço original (`md j`) menos o volume ocupado pelo item (`md j-Wi`) e somar este resultado com o valor do item. `md V(i-1, j-Wi) + Vi`. Ou seja, diminuir o total de itens (`md i-1`), diminuir o espaço disponível pelo espaço ocupado pelo item (`md j-Wi`) e somar seu valor (`md +Vi`).
 :::
 ???
+
+!!! Atenção
+É importante entender que, na recursão **V(i,j)**,  **i** é o conjunto de todos os itens até o índice **i**.
+!!!
 
 Uma vez definido como a recursão vai acontecer temos implementar as condições que levam aos cenários.
 
@@ -252,7 +256,7 @@ Agora, vamos aplicar as condições de parada na matriz.
 
 ??? Exercício 1
 
-Considerando uma mochila de capacidade `md C = 5` e os seguintes itens:
+Considerando uma mochila de capacidade `md C = 5` e os seguintes itens, com pesos `md Wi` e valores `md Vi`:
 
 |**item** |1 |2 |3 |4 |
 |--|--|--|--|--|
@@ -331,7 +335,7 @@ Preencha a posição destacada da matriz utilizando a recursão.
 Preencha a última posição referente à solução do problema.
 
 :ex3
-
+ 
 ::: Gabarito
 
 :gabex3
@@ -340,3 +344,16 @@ Preencha a última posição referente à solução do problema.
 
 ???
 
+
+Ao chegarmos ao final deste handout, percebemos que o algoritmo da Mochila Binária vai muito além do desafio do soldado Lucas, que, ao lidar com poucos itens, pode parecer simples. No entanto, sua verdadeira importância surge quando enfrentamos situações com muitos itens, tornando-se uma ferramenta crucial para encontrar a melhor maneira de maximizar o valor da mochila. Este algoritmo tem um papel fundamental em diversas situações da vida real, como explorado no link fornecido no final do handout.
+
+
+-----------------------------------------------------
+Links Relacionados a Este Algoritmo
+---------
+
+* [Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem)
+
+* [ResearchGate](https://www.researchgate.net/publication/322951612_Some_applications_of_Knapsack_problem)
+
+* [GeeksForGeeks](https://www.geeksforgeeks.org/introduction-to-knapsack-problem-its-types-and-how-to-solve-them/)
